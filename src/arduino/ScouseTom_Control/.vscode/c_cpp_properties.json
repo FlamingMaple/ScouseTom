@@ -1,14 +1,8 @@
-//
-// !!! WARNING !!! AUTO-GENERATED FILE!
-// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
-// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
-//
 {
     "configurations": [
         {
             "name": "PlatformIO",
             "includePath": [
-                "c:/Users/eit/Documents/ScouseTom/src/arduino/ScouseTom_Control/include",
                 "c:/Users/eit/Documents/ScouseTom/src/arduino/ScouseTom_Control",
                 "C:/Users/eit/.platformio/packages/framework-arduino-sam/libraries/Wire/src",
                 "c:/Users/eit/Documents/ScouseTom/lib/arduino/PCBPins",
@@ -25,7 +19,6 @@
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "c:/Users/eit/Documents/ScouseTom/src/arduino/ScouseTom_Control/include",
                     "c:/Users/eit/Documents/ScouseTom/src/arduino/ScouseTom_Control",
                     "C:/Users/eit/.platformio/packages/framework-arduino-sam/libraries/Wire/src",
                     "c:/Users/eit/Documents/ScouseTom/lib/arduino/PCBPins",
