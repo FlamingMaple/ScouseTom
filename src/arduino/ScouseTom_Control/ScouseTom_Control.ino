@@ -195,7 +195,7 @@ void setup() {
 	// setup PC connection
 	Serial.begin(115200);
 
-	//Serial.println("hey there you motherfucker");
+	Serial.println("Established contact");
 	establishContact();
 
 	/*########################################################
@@ -243,12 +243,12 @@ void setup() {
 	Finished with timer stuff
 	#########################################################*/
 
-	//Serial.println("timer set ok");
+	Serial.println("timer set ok");
 
 
 	/*#############CS INIT#############*/
 
-	//Serial.println("initialising");
+	Serial.println("initialising");
 
 	// initialise current source again and check the phase marker connection
 
@@ -360,14 +360,14 @@ void dostuff()
 	{
 	case 0: // this is the do nothing state
 	{
-		//Serial.println("Chilling");
+		Serial.println("State case 0");
 		//delay(10);
 
 		if (checkidle)
 		{
 			lastidle = millis();
 			checkidle = 0;
-			//Serial.println("reset idle counter");
+			Serial.println("Reset idle counter");
 		}
 		else
 		{
@@ -385,7 +385,7 @@ void dostuff()
 
 	case 1: // start injection state
 	{
-		//Serial.println("lets start injecting shall we?");
+		Serial.println("Injection starting case 1");
 
 		if (PC_inputgoodness && CS_commgoodness) // only do anything if settings are ok
 		{
@@ -447,7 +447,7 @@ void dostuff()
 					// turn on switches ready for injecting and that
 					SwitchesPwrOn();
 
-					//Serial.println("Switches POWERED ON");
+					Serial.println("Switches POWERED ON");
 					delay(50);
 				}
 			}
@@ -503,7 +503,8 @@ void dostuff()
 		{
 			if (!SwitchesProgrammed)
 			{
-				/*Serial.print("Channels I am about to program: ");
+				Serial.print("Channels are about to be programmed");
+				/*
 				Serial.print(Injection[iPrt][0]);
 				Serial.print(" and ");
 				Serial.println(Injection[iPrt][1]);*/
@@ -565,7 +566,7 @@ void dostuff()
 			else //if its not the first time, then see if we need to switch by checking time
 			{
 				currentMicros = micros();
-				//Serial.println(currentMicros);
+				Serial.println("Checking time");
 				if ((currentMicros - lastInjSwitch) > (curMeasTime))
 				{
 					Switchflag = 1; // if it is time to switch then set it to do that!
@@ -604,7 +605,7 @@ void dostuff()
 
 			if (StimMode && Stimflag) //if we are in stim mode and time to stimulate is passed
 			{
-				//Serial.println("doing stim");
+				Serial.println("Doing stim");
 				//sprintf(PC_outputBuffer, "Stim: %d", currentMicros - lastInjSwitch);
 				//Serial.println(PC_outputBuffer);
 
@@ -654,7 +655,7 @@ void dostuff()
 				if (StimMode) Stimflag = 1;
 
 				FirstInj = 0;
-				//Serial.println("Starting MultiInject");
+				Serial.println("Starting MultiInject");
 				shuffle(FreqOrder, NumFreq);
 				//send info to PC
 				PC_sendupdate();
@@ -711,7 +712,7 @@ void dostuff()
 
 			if (Switchflag) //if we have been told to switch then...
 			{
-				//Serial.println("doing switchflag stuff");
+				Serial.println("Doing switchflag stuff");
 				if (iRep == curNumRep) //if total number of repetitions have been reached then stop this madness
 				{
 					state = 3;
@@ -751,7 +752,7 @@ void dostuff()
 		CS_Disp(MSG_SYS_STOP);
 		CS_Disp_Wind2(MSG_SYS_STOP_2);
 
-		//Serial.println("Stopping injection");
+		Serial.println("Stopping injection");
 		//Serial.print(CS_finishedmsg);
 
 		reset_pins(); //over the top but reset all of the switches again
@@ -767,7 +768,7 @@ void dostuff()
 		else
 		{
 			//HERE IS WHERE WE GO BACK TO COMPLIANCE CHECK STATE!!!
-			//Serial.println("finished injecting, back to compliance state");
+			Serial.println("finished injecting, back to compliance state");
 			state = 9;
 		}
 
@@ -775,7 +776,7 @@ void dostuff()
 		CS_Disp(MSG_SYS_STOP);
 		CS_Disp_Wind2(MSG_SYS_STOP_2);
 
-		//Serial.println("Stopping injection");
+		Serial.println("Stopping injection");
 		Serial.print(CS_finishedmsg);
 
 		//remove anything left from the current source buffer - we dont care about it anymore!
@@ -853,7 +854,7 @@ void dostuff()
 	case 4: // initialise or "get settings" state
 	{
 		//do the CS init again
-		//Serial.println("initialising");
+		Serial.println("initialising");
 		CS_commgoodness = 0;
 		CS_commgoodness = CS_init();
 
@@ -897,12 +898,12 @@ void dostuff()
 
 		if (PC_commgoodness)
 		{
-			//Serial.println("checking inputs");
+			Serial.println("Checking inputs");
 			PC_inputgoodness = checkinputs(); // check inputs
 
 			if (!PC_inputgoodness) // moan if its not ok
 			{
-				//Serial.println("INPUT CHECK FAILED");
+				Serial.println("INPUT CHECK FAILED");
 				Serial.print(CS_settingserrmsg);
 				CS_Disp(MSG_SET_ERR);
 				CS_Disp_Wind2(MSG_SET_ERR_2);
@@ -947,9 +948,7 @@ void dostuff()
 		{
 			iTrigChk = 0;
 			state = 0;
-			/*Serial.print("ind done");
-			Serial.println(state);
-			*/
+			Serial.print("ind done");
 		}
 
 	}
@@ -959,10 +958,7 @@ void dostuff()
 
 		if (!SwitchesProgrammed)
 		{
-			/*Serial.print("Channels I am about to program: ");
-			Serial.print(Injection[iPrt][0]);
-			Serial.print(" and ");
-			Serial.println(Injection[iPrt][1]);*/
+			Serial.print("I am about to program channels");
 
 			SetSwitchesFixed_Contact(); // if switches havent been programmed then do that based on iPrt and take a set amount of time
 		}
@@ -1004,19 +1000,18 @@ void dostuff()
 		else //if its not the first time, then see if we need to switch by checking time
 		{
 			currentMicros = micros();
-			//Serial.println(currentMicros);
+			Serial.println(currentMicros);
 			if ((currentMicros - lastInjSwitch) > (ContactTime /*- SwitchTimeFix */)) // time to switch is MeasTime, but we fixed the time taken to program switches in SetSwitchesFixed
 			{
 				Switchflag = 1; // if it is time to switch then set it to do that!
-				/*sprintf(PC_outputBuffer, "Switch: %d", currentMicros - lastInjSwitch);
-				Serial.println(PC_outputBuffer);*/
+				Serial.println("Switch!");
 			}
 			else if ((currentMicros - lastInjSwitch) > (curComplianceCheckOffset) && CompCheckFlag)
 			{
 				//check the compliance and do stuff based on the result
 				//The iPrt counter is incremted when switching, thus the result needs to go into iPrt-1
 
-				//Serial.println("checking compliance");
+				Serial.println("checking compliance");
 
 				int CurrentPrt = iContact - 1;
 				if (CurrentPrt < 0) CurrentPrt = NumElec - 1;
@@ -1056,14 +1051,12 @@ void dostuff()
 	{
 		//this is badly coded because who cares
 
-		//Serial.println("Checking Switches");
+		Serial.println("Checking Switches");
 
 		Switch_goodness = Switch_init();
 
 		state = 0;
-		/*Serial.print("ind done");
-		Serial.println(state);
-		*/
+		Serial.print("ind done 2");
 
 	}
 	break;
@@ -1078,13 +1071,13 @@ void dostuff()
 
 		*/
 
-		//Serial.println("Comp Check mode!");
+		Serial.println("Comp Check mode!");
 
 		if (FirstCompCheck && PC_inputgoodness && CS_commgoodness) // only do anything if settings are ok
 		{
 			//save the previous variables to not break anything
 
-			//Serial.println("Doing first things");
+			Serial.println("Doing first things");
 
 			CompFreqModeBackUp = SingleFreqMode;
 			CompStimModeBackup = StimMode;
@@ -1101,7 +1094,7 @@ void dostuff()
 		}
 		else
 		{
-			//Serial.println("Lets see what the compliance was shall we?");
+			Serial.println("Lets see what the compliance was shall we?");
 			PC_sendcomplianceupdate();
 			//send info about that checks
 			sendasciinum(iCompCheck + 1);
@@ -1121,7 +1114,7 @@ void dostuff()
 		if (iCompCheck >= CompCheckNum) // if we have done all the compliance values we need then stop and reset
 		{
 
-			//Serial.println("We are done checking compliance");
+			Serial.println("We are done checking compliance");
 			Serial.print(Complianceokmsg);
 			ComplianceCheckMode = 0;
 			state = 0; // dont start injection if things are fucked
@@ -1135,11 +1128,7 @@ void dostuff()
 
 			//if we ARE doing something, then do all this:
 
-			/*Serial.print("Checking Compliance Value : ");
-			Serial.println(iCompCheck);
-			Serial.print("For Freq Number :");
-			Serial.println(iCompCheckFreq);
-			*/
+			Serial.print("Checking Compliance Values");
 
 			Serial.print(CS_commokmsg); // send ok msg to pc
 
@@ -1170,8 +1159,7 @@ void dostuff()
 
 			curCompliance = Compliance * ComplianceScaleFactors[iCompCheck];
 
-			//Serial.print("Setting Compliance to: ");
-			//Serial.println(curCompliance);
+			Serial.print("Setting Compliance");
 
 			bool compsetok = 0;
 
@@ -1179,12 +1167,10 @@ void dostuff()
 
 			if (!compsetok)
 			{
-				//Serial.println("Comp Set Problem");
+				Serial.println("Comp Set Problem");
 			}
 
-			/*Serial.print("setting Freq to: ");
-			Serial.println(Freq[iFreq]);
-			*/
+			Serial.print("setting Freq");
 			CS_commgoodness = CS_sendsettings_check(Amp[iFreq], Freq[iFreq]); // send settings to current source
 
 
@@ -1205,7 +1191,7 @@ void dostuff()
 				// turn on switches ready for injecting and that
 				SwitchesPwrOn();
 
-				//Serial.println("Switches POWERED ON");
+				Serial.println("Switches POWERED ON");
 				delay(50);
 
 				//update compliance counter
@@ -1243,7 +1229,7 @@ void getCMD(char CMDIN)
 			if (ComplianceCheckMode)
 			{
 				iCompCheck = CompCheckNum; // this is so the compliance check still ends properly
-				//Serial.println("Setting compcheck num");
+				Serial.println("Setting compcheck num");
 			}
 		}
 		break;
