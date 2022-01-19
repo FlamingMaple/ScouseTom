@@ -1,3 +1,6 @@
+#ifndef Compliance_h
+#define Compliance_h
+#include "Arduino.h"
 
 const int MinMeasTimeForComplianceCheck = 10 * 1000; //minimum time in us to check compliance - any shorter and the compliance check will delay the measurement time
 const int ComplianceCheckMeasTime = 250 * 1000; //time in us for each compliance check injection
@@ -17,3 +20,5 @@ void CompProcessSingle(int ProtocolLine);
 void CompProcessMulti();
 void ResetAfterCompliance();
 int SetComplianceOffset(int MeasTime);
+
+#endif

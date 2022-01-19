@@ -1,3 +1,5 @@
+#include <Arduino.h> // As .cpp file
+
 void stim_nextphase()
 {
 	//digitalWriteDirect(PWR_STIM, HIGH); //turn on stimulator power supply

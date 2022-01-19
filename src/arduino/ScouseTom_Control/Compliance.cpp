@@ -1,3 +1,4 @@
+#include <Arduino.h> // As .cpp file
 
 bool CompStatusRead(int i)
 {

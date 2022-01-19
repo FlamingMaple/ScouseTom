@@ -8,6 +8,12 @@
 /*
 stuff to switch the injection channels*/
 
+// Include guard
+#ifndef Switches_h
+#define Switches_h
+
+#include "Arduino.h"
+
 const int PinsPerBoard = 40;
 
 
@@ -34,4 +40,4 @@ int BadElecCheck(int Chn);
 int SwitchCheckPWR();
 int SwitchCheckOpen(int BoardNum);
 
-
+#endif

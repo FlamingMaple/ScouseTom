@@ -7,6 +7,10 @@ Wind2 represents the text for the smaller window at the bottom of the screen
 
 */
 
+#ifndef Message_h
+#define Message_h
+#include "Arduino.h"
+
 //Initialisation messages during CS_init
 String MSG_Init = "EIT ST MK 2.5";
 String MSG_Init_2 = "Initialising...";
@@ -69,3 +73,4 @@ String MSG_SET_ERR_2 = "setup did not pass checks";
 String MSG_RNG_ERR = "Rng Set Err";
 String MSG_RNG_ERR_2 = "Problem during range set";
 
+#endif
