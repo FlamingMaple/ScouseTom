@@ -172,6 +172,11 @@ int iPrt = 0; //current protocol line
 int iRep = 0; //current protocol repetition
 int iStim = 0; // current stimulation number
 
+/* Function definitions because .cpp not .ino */
+void getCMD(char CMDIN);
+void dostuff();
+inline void digitalWriteDirect(int pin, int val);
+
 /*ALL DEFINITIONS DONE FINIALLY!*/
 
 void setup() {

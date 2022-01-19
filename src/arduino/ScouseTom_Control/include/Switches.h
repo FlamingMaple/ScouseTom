@@ -11,8 +11,8 @@ stuff to switch the injection channels*/
 // Include guard
 #ifndef Switches_h
 #define Switches_h
-
 #include "Arduino.h"
+//#include "Switches.cpp"
 
 const int PinsPerBoard = 40;
 

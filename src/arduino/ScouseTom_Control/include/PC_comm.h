@@ -9,6 +9,7 @@
 #ifndef PC_comm_h
 #define PC_comm_h
 #include "Arduino.h"
+#include "PC_comm.cpp"
 
 
 const int PC_timeoutlimit = 2000; // timeout in milliseconds for response from PC

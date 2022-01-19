@@ -1,5 +1,5 @@
 #include <Arduino.h> // As .cpp file
-#include <Switches.h>
+#include "Switches.h"
 
 void SwitchChn() //switch channels - switches are programmed by SetSwitchesFixed and not changed until SYNC brought HIGH
 {

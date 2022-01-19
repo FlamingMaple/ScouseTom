@@ -8,6 +8,7 @@
 #ifndef CS_comm_h
 #define CS_comm_h
 #include "Arduino.h"
+#include "CS_comm.cpp"
 
 const byte CS_buffSize = 40; //size of char buffer to recieve from current source
 String CS_vers = "1999.0"; //Current source version number - used to check communication with current source

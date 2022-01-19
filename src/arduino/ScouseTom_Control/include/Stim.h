@@ -11,6 +11,7 @@ stuff for the stimulator trigger only */
 #ifndef Stim_h
 #define Stim_h
 #include "Arduino.h"
+#include "Stim.cpp"
 
 float mintime = 1.5; //this is the time taken for the stimulator ISR - current set to 1.5 uS
 float startdelay = 7; //min delay in microseconds from pmark to starting pulse - measured to be 7uS. can be reduced by editing Winterrupts.c but thats a bugger to change for a single sketch only

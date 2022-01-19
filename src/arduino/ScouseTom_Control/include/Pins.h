@@ -8,6 +8,7 @@
 #ifndef Pins_h
 #define Pins_h
 #include "Arduino.h"
+#include "Pins.cpp"
 
 const int indpulsewidth = 50; //this is in number of 10uS interrupts - 50 gives just above 500uS pulse width
 const int indpulsewidthtotal = indpulsewidth*2; //this is the total size of the pulse 100 is 1ms. two variables to save clock cycles in ISR

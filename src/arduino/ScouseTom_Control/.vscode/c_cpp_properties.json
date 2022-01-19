@@ -8,8 +8,8 @@
         {
             "name": "PlatformIO",
             "includePath": [
-                "c:/Users/oskar/Documents/UCL/ScouseTom/src/arduino/ScouseTom_Control/include",
                 "c:/Users/oskar/Documents/UCL/ScouseTom/src/arduino/ScouseTom_Control",
+                "c:/Users/oskar/Documents/UCL/ScouseTom/src/arduino/ScouseTom_Control/include",
                 "C:/Users/oskar/.platformio/packages/framework-arduino-sam/libraries/Wire/src",
                 "c:/Users/oskar/Documents/UCL/ScouseTom/lib/arduino/PCBPins",
                 "C:/Users/oskar/.platformio/packages/framework-arduino-sam/cores/arduino",
@@ -18,8 +18,7 @@
                 "C:/Users/oskar/.platformio/packages/framework-arduino-sam/system/CMSIS/Device/ATMEL",
                 "C:/Users/oskar/.platformio/packages/framework-arduino-sam/variants/arduino_due_x",
                 "C:/Users/oskar/.platformio/packages/framework-arduino-sam/libraries/HID/src",
-                "C:/Users/oskar/.platformio/packages/framework-arduino-sam/libraries/SPI/src",
-                ""
+                "C:/Users/oskar/.platformio/packages/framework-arduino-sam/libraries/SPI/src"
             ],
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
